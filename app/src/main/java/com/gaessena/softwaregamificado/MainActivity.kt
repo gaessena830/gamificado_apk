@@ -2,14 +2,9 @@ package com.gaessena.softwaregamificado
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.gaessena.softwaregamificado.databinding.ActivityMainBinding
 import kotlinx.coroutines.launch
@@ -17,14 +12,9 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.logging.HttpLoggingInterceptor
-import java.io.OutputStreamWriter
-import java.net.HttpURLConnection
-import java.net.URL
 import org.json.JSONObject
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.security.auth.callback.Callback
 
 class MainActivity : AppCompatActivity() {
     val urlBase = "http://softgamificado.mooo.com/gamificado_back/"
@@ -83,12 +73,15 @@ class MainActivity : AppCompatActivity() {
                 println("Page: ${response.page}")
                 val message = response.message
                 Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
+                binding.inputUsername.setText("")
+                binding.inputPass.setText("")
                 if (response.page== "./perfil.html"){
                     //pagina de perfil docente
                     val intent = Intent(this@MainActivity,DocenteActivity::class.java).apply{
                         putExtra("usuario",usuario)
 
                     }
+
                     startActivity(intent)
                 }else if (response.page== "./perfilestudiante.html"){
                     //perfil estudiante
