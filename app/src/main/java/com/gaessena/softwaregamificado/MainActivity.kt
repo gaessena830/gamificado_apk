@@ -43,8 +43,11 @@ class MainActivity : AppCompatActivity() {
         service = retrofit.create(PostApiLoginService::class.java)
 
         binding.buttonIngresar.setOnClickListener {
-
             fetchDataFromServer()
+        }
+        binding.textRegistro.setOnClickListener {
+            val intent = Intent(this@MainActivity,RegistroActivity::class.java).apply{}
+            startActivity(intent)
         }
 
     }

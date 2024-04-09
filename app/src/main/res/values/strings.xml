@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Software Gamificado</string>
     <string name="lblcursos">Cursos</string>
+    <string-array name="Spinner_Items">
+        <item>Selecciona</item>
+        <item>Docente</item>
+        <item>Estudiante</item>
+    </string-array>
 </resources>

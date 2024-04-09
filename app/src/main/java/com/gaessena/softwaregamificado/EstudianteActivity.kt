@@ -61,7 +61,7 @@ class EstudianteActivity : AppCompatActivity() {
                     "Nombre: ${perfil?.nombre}, Apellidos: ${perfil?.apellidos}",
                     Toast.LENGTH_SHORT
                 ).show()
-                // Aquí puedes utilizar los datos del perfil como desees
+                // Aquí utiliza los datos del perfil como desee
                 runOnUiThread {
                     val textDocente= findViewById<TextView>(R.id.textDocente)
                     val textIdentif= findViewById<TextView>(R.id.textIdentif)
